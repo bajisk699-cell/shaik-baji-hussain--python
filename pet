@@ -1,0 +1,31 @@
+class Owner:
+    def __init__(self, name):
+        self.name = name
+class Pet:
+    def __init__(self, name):
+        self.name = name
+class Appointment:
+    appointments = []
+    def __init__(self, owner, pet, service, charge):
+        self.owner = owner
+        self.pet = pet
+        self.service = service
+        self.charge = charge
+        Appointment.appointments.append(self)
+    def generate_receipt(self):
+        print("=" * 50)
+        print("            SERVICE RECEIPT")
+        print("=" * 50)
+        print()
+        print("Owner Name :", self.owner.name)
+        print("Pet Name   :", self.pet.name)
+        print()
+        print("Service    :", self.service)
+        print()
+        print("Amount     : ₹{}".format(self.charge))
+        print()
+        print("=" * 50)
+owner = Owner("Ethan")
+pet = Pet("Bruno")
+appointment = Appointment(owner, pet, "Grooming", 800)
+appointment.generate_receipt()

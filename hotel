@@ -1,0 +1,28 @@
+class Guest:
+    def __init__(self, name):
+        self.name = name
+
+
+class Reservation:
+    def __init__(self, guest, room_type, nights, rate):
+        self.guest = guest
+        self.room_type = room_type
+        self.nights = nights
+        self.rate = rate
+    def generate_invoice(self):
+        amount = self.nights * self.rate
+        print("=" * 50)
+        print("              HOTEL INVOICE")
+        print("=" * 50)
+        print()
+        print("Guest Name     :", self.guest.name)
+        print("Room Type      :", self.room_type)
+        print()
+        print("Nights Stayed  :", self.nights)
+        print()
+        print("Total Amount   : ₹{}".format(amount))
+        print()
+        print("=" * 50)
+guest = Guest("Sophia")
+reservation = Reservation(guest, "Deluxe", 3, 3500)
+reservation.generate_invoice()

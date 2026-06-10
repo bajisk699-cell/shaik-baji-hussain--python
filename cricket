@@ -1,0 +1,26 @@
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.runs = []
+    def add_runs(self, run):
+        self.runs.append(run)
+    def report(self):
+        total = sum(self.runs)
+        matches = len(self.runs)
+        average = total / matches
+        print("=" * 50)
+        print("             PLAYER PERFORMANCE REPORT")
+        print("=" * 50)
+        print()
+        print("Player Name    :", self.name)
+        print()
+        print("Total Runs     :", total)
+        print("Matches Played :", matches)
+        print("Average Runs   :", average)
+        print()
+        print("=" * 50)
+player = Player("Arjun")
+player.add_runs(50)
+player.add_runs(75)
+player.add_runs(100)
+player.report()

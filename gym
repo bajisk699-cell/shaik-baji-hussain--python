@@ -1,0 +1,31 @@
+class Member:
+    def __init__(self, name):
+        self.name = name
+class MembershipPlan:
+    def __init__(self, plan_name, monthly_fee):
+        self.plan_name = plan_name
+        self.monthly_fee = monthly_fee
+class Gym:
+    def __init__(self, member, plan, duration):
+        self.member = member
+        self.plan = plan
+        self.duration = duration
+    def generate_receipt(self):
+        total_fee = self.plan.monthly_fee * self.duration
+        print("=" * 50)
+        print("             MEMBERSHIP RECEIPT")
+        print("=" * 50)
+        print()
+        print("Member Name :", self.member.name)
+        print()
+        print("Plan        :", self.plan.plan_name)
+        print()
+        print("Duration    :", self.duration, "Months")
+        print()
+        print("Total Fee   : ₹{}".format(total_fee))
+        print()
+        print("=" * 50)
+member = Member("saleem")
+plan = MembershipPlan("Premium", 2000)
+gym = Gym(member, plan, 6)
+gym.generate_receipt()

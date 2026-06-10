@@ -1,0 +1,24 @@
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.scores = []
+    def add_score(self, score):
+        self.scores.append(score)
+    def generate_report(self):
+        final_score = sum(self.scores)
+        print("=" * 50)
+        print("            TOURNAMENT REPORT")
+        print("=" * 50)
+        print()
+        print("Player Name :", self.name)
+        print()
+        print("Final Score :", final_score)
+        print()
+        print("Rank Status : QUALIFIED")
+        print()
+        print("=" * 50)
+player = Player("Leo")
+player.add_score(100)
+player.add_score(150)
+player.add_score(200)
+player.generate_report()

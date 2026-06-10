@@ -1,0 +1,31 @@
+class Passenger:
+    def __init__(self, name):
+        self.name = name
+
+
+class Flight:
+    def __init__(self, flight_no):
+        self.flight_no = flight_no
+
+
+class BoardingPass:
+    def __init__(self, passenger, flight, seat):
+        self.passenger = passenger
+        self.flight = flight
+        self.seat = seat
+    def generate_boarding_pass(self):
+        print("=" * 50)
+        print("               BOARDING PASS")
+        print("=" * 50)
+        print()
+        print("Passenger Name :", self.passenger.name)
+        print("Flight Number  :", self.flight.flight_no)
+        print("Seat Number    :", self.seat)
+        print()
+        print("Status         : CHECK-IN COMPLETE")
+        print()
+        print("=" * 50)
+passenger = Passenger("Mason")
+flight = Flight("AI202")
+bp = BoardingPass(passenger, flight, "12A")
+bp.generate_boarding_pass()

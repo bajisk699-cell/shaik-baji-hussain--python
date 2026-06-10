@@ -1,0 +1,10 @@
+balance=5000
+try:
+   amount=int(input("enter withdrawal amount:"))
+   if amount <= balance:
+       balance -= amount
+       print("Withdrawal successful. Remaining balance: {}".format(balance))
+   else:
+       print("Insufficient funds.")
+except ValueError:
+   print("Invalid input. Please enter a valid number.")

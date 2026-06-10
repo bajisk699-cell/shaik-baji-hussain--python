@@ -1,0 +1,35 @@
+class Client:
+    def __init__(self, name):
+        self.name = name
+
+
+class Project:
+    def __init__(self, name):
+        self.name = name
+
+
+class Invoice:
+    def __init__(self, client, project, hours, rate):
+        self.client = client
+        self.project = project
+        self.hours = hours
+        self.rate = rate
+    def generate_invoice(self):
+        amount = self.hours * self.rate
+        print("=" * 50)
+        print("                CLIENT INVOICE")
+        print("=" * 50)
+        print()
+        print("Client Name   :", self.client.name)
+        print("Project Name  :", self.project.name)
+        print()
+        print("Hours Worked  :", self.hours)
+        print("Hourly Rate   : ₹{}".format(self.rate))
+        print()
+        print("Invoice Amount: ₹{}".format(amount))
+        print()
+        print("=" * 50)
+client = Client("Olivia")
+project = Project("Portfolio Website")
+invoice = Invoice(client, project, 20, 1000)
+invoice.generate_invoice()

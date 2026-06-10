@@ -1,0 +1,25 @@
+class Vehicle:
+    def __init__(self, number):
+        self.number = number
+
+
+class ParkingManager:
+    def __init__(self, vehicle, hours, rate):
+        self.vehicle = vehicle
+        self.hours = hours
+        self.rate = rate
+    def generate_receipt(self):
+        fee = self.hours * self.rate
+        print("=" * 50)
+        print("              PARKING RECEIPT")
+        print("=" * 50)
+        print()
+        print("Vehicle Number :", self.vehicle.number)
+        print("Hours Parked   :", self.hours)
+        print()
+        print("Parking Fee    : ₹{}".format(fee))
+        print()
+        print("=" * 50)
+vehicle = Vehicle("AP39AB1234")
+parking = ParkingManager(vehicle, 5, 30)
+parking.generate_receipt()

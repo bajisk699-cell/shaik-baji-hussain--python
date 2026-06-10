@@ -1,0 +1,46 @@
+class User:
+    def __init__(self, name):
+        self.name = name
+class Wallet:
+    def __init__(self, balance):
+        self.balance = balance
+        self.transactions = []
+    def add_money(self, amount):
+        self.balance += amount
+        self.transactions.append(("Added", amount))
+    def transfer_money(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            self.transactions.append(("Transferred", amount))
+            return True
+        return False
+    def show_balance(self):
+        return self.balance
+class Transaction:
+    def __init__(self, user, wallet, transfer_amount):
+        self.user = user
+        self.wallet = wallet
+        self.transfer_amount = transfer_amount
+    def generate_receipt(self):
+        opening_balance = self.wallet.show_balance()
+        if self.wallet.transfer_money(self.transfer_amount):
+            current_balance = self.wallet.show_balance()
+            print("=" * 50)
+            print("          TRANSACTION RECEIPT")
+            print("=" * 50)
+            print()
+            print("User Name       :", self.user.name)
+            print()
+            print("Opening Balance : ₹{}".format(opening_balance))
+            print()
+            print("Transfer Amount : ₹{}".format(self.transfer_amount))
+            print()
+            print("Current Balance : ₹{}".format(current_balance))
+            print()
+            print("Status          : SUCCESSFUL")
+            print()
+            print("=" * 50)
+user = User("saleem")
+wallet = Wallet(10000)
+transaction = Transaction(user, wallet, 2500)
+transaction.generate_receipt()
